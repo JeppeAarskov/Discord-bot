@@ -7,12 +7,13 @@ const commands = [
         description: 'Svarer: Vil du slås?',
     },
     {
-        name: 'asbjørn',
+        name: 'assbjørn',
         description: 'Info om Asbjørn',
-
+    },
+    {
         name: 'sex',
         description: 'Asbjørns mors tilbud',
-    }
+    },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

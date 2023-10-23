@@ -35,7 +35,7 @@ client.on('interactionCreate', (interaction) => {
         interaction.reply('Vil du slås?');
     }
 
-    if (interaction.commandName === 'asbjørn') {
+    if (interaction.commandName === 'assbjørn') {
         interaction.reply('*opkast*');
     }
 
