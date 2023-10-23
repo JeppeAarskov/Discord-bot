@@ -28,4 +28,14 @@ client.on('messageCreate', (message) => {
     }
 });
 
+client.on('interactionCreate', (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+
+    if (interaction.commandName === 'eow') {
+        interaction.reply('Vil du slås?');
+    }
+
+    console.log(interaction.commandName);
+});
+
 client.login(process.env.TOKEN);
