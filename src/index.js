@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, IntentsBitField } = require('discord.js');
 
 const client = new Client({
@@ -14,9 +15,21 @@ client.on('ready', (c) => {
 });
 
 client.on('messageCreate', (message) => {
+    if (message.author.bot) {
+        return;
+    }
+
     if (message.content === 'asbjørn har en sygdom') {
         message.reply('True');
     }
+
+    if (message.content === 'hello') {
+        message.reply('Hello fellow nigga<3');
+    }
+
+    if (message.content === '') {
+        message.reply('');
+    }
 });
 
-client.login("MTE2MTU2MTM2ODM3ODQ3NDQ5Ng.GJ-bkv.sVDqzohgM1J9sY1tGaSag0MQttWhvWMUKnTdxY");
+client.login(process.env.TOKEN);
