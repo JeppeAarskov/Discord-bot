@@ -26,10 +26,6 @@ client.on('messageCreate', (message) => {
     if (message.content === 'hello') {
         message.reply('Hello fellow nigga<3');
     }
-
-    if (message.content === '') {
-        message.reply('');
-    }
 });
 
 client.login(process.env.TOKEN);
