@@ -35,6 +35,14 @@ client.on('interactionCreate', (interaction) => {
         interaction.reply('Vil du slås?');
     }
 
+    if (interaction.commandName === 'asbjørn') {
+        interaction.reply('*opkast*');
+    }
+
+    if (interaction.commandName === 'sex') {
+        interaction.reply('Jeg er Asbjørns mor, og jeg er klar på alt, hvis du giver samtykke til at min 3 tons kropsvægt vil trykke dig helt flad og din pung bliver tømt<3');
+    }
+
     console.log(interaction.commandName);
 });
 
