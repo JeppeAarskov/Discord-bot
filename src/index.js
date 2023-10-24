@@ -26,6 +26,62 @@ client.on('messageCreate', (message) => {
     if (message.content === 'hello') {
         message.reply('Hello fellow nigga<3');
     }
+
+    if (message.content === 'sutsut') {
+        message.reply('Pris: 10kr.. Adresse: Under din seng');
+    }
+
+    if (message.content === 'sex') {
+        message.reply('Børn?');
+    }
+
+    if (message.content === 'alex') {
+        message.reply('er klogere end Asbjørn lol');
+    }
+
+    if (message.content === 'asbjørn') {
+        message.reply('får aldrig en kæreste');
+    }
+
+    if (message.content === 'jeppe') {
+        message.reply('er Asbjørns crush');
+    }
+
+    if (message.content === 'rosby') {
+        message.reply('er Asbjørns ejer');
+    }
+
+    if (message.content === 'adnan') {
+        message.reply('elsker Emilia');
+    }
+
+    if (message.content === 'cubecrafter') {
+        message.reply('elsker når spil ikke virker');
+    }
+
+    if (message.content === 'Alex') {
+        message.reply('er klogere end Asbjørn lol');
+    }
+
+    if (message.content === 'Asbjørn') {
+        message.reply('får aldrig en kæreste');
+    }
+
+    if (message.content === 'Jeppe') {
+        message.reply('er Asbjørns crush');
+    }
+
+    if (message.content === 'Rosby') {
+        message.reply('er Asbjørns ejer');
+    }
+
+    if (message.content === 'Adnan') {
+        message.reply('elsker Emilia');
+    }
+
+    if (message.content === 'Cubecrafter') {
+        message.reply('elsker når spil ikke virker');
+    }
 });
 
 client.on('interactionCreate', (interaction) => {
@@ -41,6 +97,14 @@ client.on('interactionCreate', (interaction) => {
 
     if (interaction.commandName === 'sex') {
         interaction.reply('Jeg er Asbjørns mor, og jeg er klar på alt, hvis du giver samtykke til at min 3 tons kropsvægt vil trykke dig helt flad og din pung bliver tømt<3');
+    }
+
+    if (interaction.commandName === 'blowjob') {
+        interaction.reply('Pris: 10kr... Adresse: Under din seng');
+    }
+
+    if (interaction.commandName === 'funny') {
+        interaction.reply('https://www.youtube.com/watch?v=0VxT-c36IiQ');
     }
 
     console.log(interaction.commandName);

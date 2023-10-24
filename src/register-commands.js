@@ -14,6 +14,14 @@ const commands = [
         name: 'sex',
         description: 'Asbjørns mors tilbud',
     },
+    {
+        name: 'blowjob',
+        description: 'Asbjørns mors tilbud',
+    },
+    {
+        name: 'funny',
+        description: 'xD',
+    },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
