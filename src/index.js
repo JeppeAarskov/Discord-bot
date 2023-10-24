@@ -108,7 +108,11 @@ client.on('interactionCreate', (interaction) => {
     }
 
     if (interaction.commandName === 'funny') {
-        interaction.reply('https://www.youtube.com/watch?v=0VxT-c36IiQ');
+        interaction.reply('https://www.youtube.com/watch?v=m6Y_6Ssxt5k&ab_channel=JepperDebber');
+    }
+
+    if (interaction.commandName === 'retard') {
+        interaction.reply('https://www.youtube.com/watch?v=0VxT-c36IiQ&ab_channel=WalkersFilms');
     }
 
     console.log(interaction.commandName);

@@ -22,6 +22,10 @@ const commands = [
         name: 'funny',
         description: 'xD',
     },
+    {
+        name: 'retard',
+        description: 'xD',
+    },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
