@@ -19,6 +19,10 @@ client.on('messageCreate', (message) => {
         return;
     }
 
+    if (message.author.id === '363054980388618241') {
+        message.reply('stfu bitch');
+    }
+
     if (message.content === 'asbjørn har en sygdom') {
         message.reply('True');
     }
