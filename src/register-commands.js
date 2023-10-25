@@ -99,7 +99,16 @@ module.exports = {
         }
 
         try {
+            const { default: prettyMs } = await import('pretty-ms');
 
+            if (targetUser.isCommunicationDisabled()) {
+                await targetUser.timeout(msDuration, reason);
+                await interaction.editReply(`er nu død i ${prettyMs(msDuration, { verbose: true })}`);
+                return;
+            }
+
+            await targetUser.timeout(msDuration, reason);
+            await interaction.editReply(`er nu død i ${prettyMs(msDuration, { verbose: true })}.\nReason: ${reason}`);
         } catch (error) {
             console.log(`Fiks dig selv: ${error}`);
         }
