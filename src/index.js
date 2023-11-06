@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -12,6 +12,11 @@ const client = new Client({
 
 client.once('ready', () => {
     console.log('Asbjørns mor er klar til dig');
+
+    client.user.setActivity({
+        name: 'Asbjørn er homo',
+        type: ActivityType.Watching,
+    });
 });
 
 client.on('messageCreate', (message) => {
@@ -104,7 +109,19 @@ client.on('interactionCreate', (interaction) => {
     }
 
     if (interaction.commandName === 'blowjob') {
-        interaction.reply('Pris: 10kr... Adresse: Under din seng');
+        const embed = new EmbedBuilder()
+            .setTitle("Blowjob")
+            .setDescription("Sygt billigt")
+            .setColor('Random')
+            .addFields({
+                name: 'Pris:',
+                value: '10kr',
+            })
+            .addFields({
+                name: 'Booking:',
+                value: 'https://www.youtube.com/watch?v=2qgxAHW1w78&ab_channel=Kamiicin',
+            });
+        interaction.reply({ embeds: [embed] });
     }
 
     if (interaction.commandName === 'funny') {
