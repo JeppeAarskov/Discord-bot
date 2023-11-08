@@ -22,7 +22,9 @@ client.once('ready', () => {
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_KEY,
-})
+});
+
+const CHANNELS = ['1165922425402306560', '1171725443389460510'];
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) {
@@ -31,6 +33,47 @@ client.on('messageCreate', async (message) => {
 
     if (message.author.id === '363054980388618241') {
         message.reply('stfu bitch'); 
+    }
+
+    if (!CHANNELS.includes(message.channelId) && !message.mentions.users.has(client.user.id)) return;
+
+    await message.channel.sendTyping();
+
+    const sendTypingInterval = setInterval(() => {
+        message.channel.sendTyping();
+    }, 5000);
+
+    const response = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: [
+            {
+                // name:
+                role: 'system',
+                content: 'Asbjørns mor er fræk'
+            },
+            {
+                // name:
+                role: 'user',
+                content: message.content,
+            },
+        ],
+    })
+    .catch((error) => console.error('OpenAI Error:\n', error));
+
+    clearInterval(sendTypingInterval);
+
+    if (!response) {
+        message.reply("Hvad du snakke om bro");
+        return;
+    }
+
+    const responseMessage = response.choices[0].message.content;
+    const chunkSizeLimit = 2000;
+
+    for (let i = 0; i < responseMessage.length; i += chunkSizeLimit) {
+        const chunk = responseMessage.substring(i, i + chunkSizeLimit);
+
+        await message.reply(chunk);
     }
 
     if (message.content === 'asbjørn har en sygdom') {
@@ -96,25 +139,6 @@ client.on('messageCreate', async (message) => {
     if (message.content === 'Cubecrafter') {
         message.reply('elsker når spil ikke virker');
     }
-
-    const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [
-            {
-                // name:
-                role: 'system',
-                content: 'Asbjørns mor er klog'
-            },
-            {
-                // name:
-                role: 'user',
-                content: message.content,
-            }
-        ],
-    })
-    .catch((error) => console.error('OpenAI Error:\n', error));
-
-    message.reply(response.choices[0].message.content);
 });
 
 client.on('interactionCreate', (interaction) => {
