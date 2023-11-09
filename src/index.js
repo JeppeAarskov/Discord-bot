@@ -35,6 +35,18 @@ client.on('messageCreate', async (message) => {
         message.reply('stfu bitch'); 
     }
 
+    if (message.author.bot || message.author.id === '363054980388618241') {
+        return;
+    }
+
+    if (message.author.id === '401784082826002452') {
+        message.reply('Upload Dronning Margrethe Minecraft videoen din bøv');
+    }
+
+    if (message.author.bot || message.author.id === '401784082826002452') {
+        return;
+    }
+
     if (!CHANNELS.includes(message.channelId) && !message.mentions.users.has(client.user.id)) return;
 
     await message.channel.sendTyping();
@@ -57,6 +69,7 @@ client.on('messageCreate', async (message) => {
                 content: message.content,
             },
         ],
+        max_tokens: 500,
     })
     .catch((error) => console.error('OpenAI Error:\n', error));
 
