@@ -69,7 +69,7 @@ client.on('messageCreate', async (message) => {
                 content: message.content,
             },
         ],
-        max_tokens: 500,
+        max_tokens: 1000,
     })
     .catch((error) => console.error('OpenAI Error:\n', error));
 
